@@ -1,0 +1,29 @@
+replicas:
+  _default: 1
+  dev: 1
+
+selector : dev
+
+name:
+  app: delivery-helm
+
+service:
+  nameApp: order-helm-service
+  portName: port-delivery
+  type: NodePort
+  port: 80
+  targetPort: 8002
+
+image:
+  repository: bobah165/delivery
+  tag: v6
+
+ingress:
+  enabled: false
+  name: "delivery-service-helm-ingress"
+  className: nginx
+  host: "arch.homework"
+  pathType: Prefix
+  path:
+    delivery: /api/delivery
+
