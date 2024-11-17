@@ -8,7 +8,7 @@ name:
   app: delivery-helm
 
 service:
-  nameApp: order-helm-service
+  nameApp: delivery-helm-service
   portName: port-delivery
   type: NodePort
   port: 80
@@ -16,7 +16,7 @@ service:
 
 image:
   repository: bobah165/delivery
-  tag: v6
+  tag: v7
 
 ingress:
   enabled: false
