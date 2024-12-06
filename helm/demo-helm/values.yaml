@@ -14,9 +14,16 @@ service:
   port: 80
   targetPort: 8002
 
+kafka:
+  portName: port-delivery-kafka
+  type: NodePort
+  port: 9092
+  targetPort: 9092
+  bootstrap: kafka:9092
+
 image:
   repository: bobah165/delivery
-  tag: v7
+  tag: v10
 
 ingress:
   enabled: false
@@ -26,4 +33,14 @@ ingress:
   pathType: Prefix
   path:
     delivery: /api/delivery
+
+db:
+  url: jdbc:postgresql://my-db-postgresql:5432/postgres
+
+app:
+  db:
+    password:
+      _default: cG9zdGdyZXM=
+    username:
+      _default: cG9zdGdyZXM=
 
